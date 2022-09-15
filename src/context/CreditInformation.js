@@ -29,26 +29,6 @@ export const CreditInformationProvider = (props) => {
     });
   };
 
-  /* const [userValues, setUserValues] = useState({
-    amount: null,
-    installments: null,
-    profitRate: null,
-    installmentInterval: null,
-    taxRate: {
-      BSMV: 0.05,
-      KKDF: 0.15,
-    },
-  });
-
-  const [result, setResult] = useState(0);
-
-  const data = {
-    userValues,
-    setUserValues,
-    result,
-    setResult,
-  }; */
-
   return (
     <CreditInformationContext.Provider
       value={{

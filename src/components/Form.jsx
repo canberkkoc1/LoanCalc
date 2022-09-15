@@ -1,10 +1,17 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { CreditInformationContext } from "../context/CreditInformation";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
+import { useImperativeHandle } from "react";
 
 export default function FormCredit() {
   const { addCreditInformation } = useContext(CreditInformationContext);
+
+  const ref = useRef();
+
+  useEffect(() => {
+    ref.current.focus();
+  }, []);
 
   const navigate = useNavigate();
 
@@ -34,6 +41,7 @@ export default function FormCredit() {
       <form onSubmit={handleSubmit}>
         <div className="user-box">
           <input
+            ref={ref}
             type="text"
             name="total"
             id="total_credit"
