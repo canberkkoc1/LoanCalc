@@ -1,19 +1,21 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { forwardRef, useContext, useEffect, useState } from "react";
 import { CreditInformationContext } from "../context/CreditInformation";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { useImperativeHandle } from "react";
+import { useRef } from "react";
 
-export default function FormCredit() {
+const FormCredit = forwardRef((props, ref) => {
   const { addCreditInformation } = useContext(CreditInformationContext);
 
-  const ref = useRef();
-
-  useEffect(() => {
-    ref.current.focus();
-  }, []);
-
+  const refer = useRef(null);
   const navigate = useNavigate();
+
+  useImperativeHandle(ref, () => ({
+    focus: () => {
+      refer.current.focus();
+    },
+  }));
 
   // form states
 
@@ -22,7 +24,6 @@ export default function FormCredit() {
     installments: null,
     profitRate: null,
     installmentInterval: null,
-
     BSMV: null,
     KKDF: null,
   });
@@ -41,25 +42,31 @@ export default function FormCredit() {
       <form onSubmit={handleSubmit}>
         <div className="user-box">
           <input
-            ref={ref}
+            {...props}
+            ref={refer}
+            required
             type="text"
             name="total"
             id="total_credit"
             onChange={(e) =>
-              setUserValues({ ...userValues, amount: e.target.value })
+              setUserValues({
+                ...userValues,
+                amount: e.target.value,
+              })
             }
           />
           <label>Amount</label>
         </div>
         <div className="user-box">
           <select
+            required
             name=""
             id=""
             onChange={(e) =>
               setUserValues({ ...userValues, installments: e.target.value })
             }
           >
-            <option value="">Please choose</option>
+            <option value="">Installments</option>
             <option value="12">12</option>
             <option value="24">24</option>
             <option value="36">36</option>
@@ -68,17 +75,22 @@ export default function FormCredit() {
         </div>
         <div className="user-box">
           <input
+            required
             type="text"
             name="profit_rate"
             id=""
             onChange={(e) =>
-              setUserValues({ ...userValues, profitRate: e.target.value })
+              setUserValues({
+                ...userValues,
+                profitRate: e.target.value,
+              })
             }
           />
           <label>Rate</label>
         </div>
         <div className="user-box">
           <select
+            required
             name=""
             id=""
             onChange={(e) =>
@@ -88,7 +100,7 @@ export default function FormCredit() {
               })
             }
           >
-            <option value="">Please choose</option>
+            <option value="">Instalments period</option>
             <option value="7">Week</option>
             <option value="30">Month</option>
             <option value="360">Year</option>
@@ -96,6 +108,7 @@ export default function FormCredit() {
         </div>
         <div className="user-box">
           <input
+            required
             type="text"
             name="KKDV"
             id=""
@@ -110,6 +123,7 @@ export default function FormCredit() {
         </div>
         <div className="user-box">
           <input
+            required
             type="text"
             name="KKDV"
             id=""
@@ -128,4 +142,6 @@ export default function FormCredit() {
       </form>
     </div>
   );
-}
+});
+
+export default FormCredit;
