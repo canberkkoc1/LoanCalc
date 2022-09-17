@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+#Fimple React Practicum
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![alt text](https://patika-cohorts-prod.s3-eu-central-1.amazonaws.com/cohorts/fimple-react-practicum/9aiPrheejW3rfaXYW-cohorts-cover)
 
-## Available Scripts
+Proje Fimple ve Patika is birliginde gerceklesen React Practicum kapsaminda verilen projedir.
 
-In the project directory, you can run:
+Proje genel olarak kullanicilarin kredi geri odeme tutarlarini hesaplamasi ve taksit tutarlarinin kullaniciya gosterilmesi uzerinedir.
 
-### `npm start`
+<br>
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Icindekiler
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [Uygulama Isterleri](#uygulama-isterleri)
+- [Uygulama Oncesi Hazirlik](#uygulama-oncesi-hazirlik)
+- [Uygulama Icerigi](#uygulama-icerigi)
+- [Uygulamanin Calistirilmasi](#uygulamanin-calistirilmasi)
 
-### `npm test`
+<br>
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Uygulama Isterleri
 
-### `npm run build`
+1. Form araciligi ile kullanicidan kredi bilgileri alinacak
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Kar formulu kullanilarak hesaplama yapilacak
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Geri odeme plani bir tabloda gosterilecek.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. ReactJs kullanilacak
 
-### `npm run eject`
+<br>
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Uygulama Oncesi Hazirlik
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Uygulama icinde kullanilan yapilar:** component,context,router,react-bootstrap
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<br>
+<br>
+<br>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Uygulama Icerigi
 
-## Learn More
+- Projede kullanici kredi icin gerekli bilgileri girdikten sonra bir geri odeme plani tablosu olusturabilir.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Oncelikle kullanicidan bilgilerin alanicagi bir form yapisi olusturulmustur. Bu form yapisi ile kullanicidan alinan veriler bir state olarak saklanir.
+  <br>
 
-### Code Splitting
+- Form ile alinan verilerin butun componentler tarafindan erisilebilir olmasi icin bir context yapisi olusturulmustur. Bu yapi icerisinde hesaplamalar icin gerekli olan bilgiler tutulur ve disariya acilir.
+  <br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Form icerisinde kullanici submit islemi yaptiginda context icerisinde tanimli olan fonksiyon tetiklenir ve veriler context`e kaydedilir. Ayrica submit isleminden sonra kullanici otomatik olarak geri odeme tablosunun bulundugu sayfaya yonlendirilir.
+  <br>
 
-### Analyzing the Bundle Size
+- Kullanici odeme tablosunun bulundugu sayfaya geldiginde girdigi veriler uzerinden hesaplanan odeme tutarlarini gorebilir. Bu bilgiler asagida oldugu gibi basliklar altinda tablo seklinde gosterilir.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+| Taksit No | Taksit Tutari | Ana Para | Kalan Ana Para | Kar Tutari | KKDF | BSMV |
+| --------- | ------------- | -------- | -------------- | ---------- | ---- | ---- |
 
-### Making a Progressive Web App
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Tablo verilerinin hesaplanmasi icin `helper` dosyasi icinde bir hesaplam fonksiyonu kullanilmistir.
 
-### Advanced Configuration
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Projede `App.test.js` icerisinde tablo verileri ile ilgili testler yazilmistir.
+  <br>
+  <br>
+  <br>
 
-### Deployment
+# Uygulamanin Calistirilmasi
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Proje GitHub uzerinden clone olarak local ortama alinir.
+   <br>
+2. Proje icinde terminal uzerinden `npm install` kullanirarak paketler yuklenir.
+   <br>
+3. Paketler yuklendikten sonra yine terminal uzerinden `npm start` ile projeyi baslatabilirsini.
+   <br>
+4. Projede yazilan testleri `npm run test` ile calistirabilirsiniz.

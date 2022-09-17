@@ -36,13 +36,20 @@ describe("paybackTable", () => {
     const tableRows = screen.getAllByRole("row");
 
     const row1 = tableRows[1];
+    const rowLast = tableRows[12];
 
     for (let i = 1; i < 7; i++) {
       // eslint-disable-next-line testing-library/no-node-access
       const cell = row1.children[i];
+      // eslint-disable-next-line testing-library/no-node-access
+      const lastCell = rowLast.children[i];
 
       expect(cell.textContent).toBe(
         Object.values(resultArray[0])[i].toFixed(2).toString()
+      );
+
+      expect(lastCell.textContent).toBe(
+        Object.values(resultArray[11])[i].toFixed(2).toString()
       );
     }
   });

@@ -1,9 +1,8 @@
-import React, { forwardRef, useContext, useEffect, useState } from "react";
+import React, { forwardRef, useContext, useRef, useState } from "react";
 import { CreditInformationContext } from "../context/CreditInformation";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { useImperativeHandle } from "react";
-import { useRef } from "react";
 
 const FormCredit = forwardRef((props, ref) => {
   const { addCreditInformation } = useContext(CreditInformationContext);
